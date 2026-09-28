@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лічильник</title>
+<style>
+:root{--bg:#fdf6ec;--fg:#2b1d0e;--accent:#e0662b}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1410;--fg:#f6ead9;--accent:#ff9a5c}}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;text-align:center}
+#n{font-size:clamp(5rem,30vw,12rem);font-weight:700;line-height:1;margin:0 0 1.5rem;color:var(--accent)}
+button{font:inherit;font-size:1.5rem;width:3.2rem;height:3.2rem;border-radius:50%;border:2px solid var(--accent);background:none;color:var(--fg);cursor:pointer;margin:0 .4rem}
+button:hover{background:var(--accent);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+<p id="n">0</p>
+<button id="m" aria-label="Мінус">−</button>
+<button id="r" aria-label="Скинути">0</button>
+<button id="p" aria-label="Плюс">+</button>
+</main>
+<script>
+var c=0,n=document.getElementById("n");
+function s(v){c=v;n.textContent=c}
+document.getElementById("p").onclick=function(){s(c+1)};
+document.getElementById("m").onclick=function(){s(c-1)};
+document.getElementById("r").onclick=function(){s(0)};
+</script>
+</body>
+</html>
